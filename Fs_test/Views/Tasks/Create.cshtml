@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create New Task</h2>
+<h2>Crar Nueva Tarea</h2>
 
 <form action="@Url.Action("Create")" method="post">
     @Html.AntiForgeryToken()
 
     <div class="form-group">
-        <label for="Title" class="control-label col-md-2">Title:</label>
+        <label for="Title" class="control-label col-md-2">Titulo:</label>
         <div class="col-md-10">
             <input type="text" id="Title" name="Title" class="form-control" />
             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
@@ -19,7 +19,7 @@
     </div>
 
     <div class="form-group">
-        <label for="Description" class="control-label col-md-2">Description:</label>
+        <label for="Description" class="control-label col-md-2">Descripcion:</label>
         <div class="col-md-10">
             <textarea id="Description" name="Description" rows="4" class="form-control"></textarea>
             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
@@ -27,7 +27,7 @@
     </div>
 
     <div class="form-group">
-        <label for="Created_at" class="control-label col-md-2">Created At:</label>
+        <label for="Created_at" class="control-label col-md-2">Creado En:</label>
         <div class="col-md-10">
             <input type="datetime-local" id="Created_at" name="Created_at" class="form-control" />
             @Html.ValidationMessageFor(model => model.Created_at, "", new { @class = "text-danger" })
@@ -35,7 +35,7 @@
     </div>
 
     <div class="form-group">
-        <label for="Expires_at" class="control-label col-md-2">Expires At:</label>
+        <label for="Expires_at" class="control-label col-md-2">Expira En:</label>
         <div class="col-md-10">
             <input type="datetime-local" id="Expires_at" name="Expires_at" class="form-control" />
             @Html.ValidationMessageFor(model => model.Expires_at, "", new { @class = "text-danger" })
@@ -43,19 +43,19 @@
     </div>
 
     <div class="form-group">
-        <label for="Completed" class="control-label col-md-2">Completed:</label>
+        <label for="Completed" class="control-label col-md-2">Completado:</label>
         <div class="col-md-10">
             <input type="checkbox" id="Completed" name="Completed" value="true" />
             <input type="hidden" name="Completed" value="false" />
-            <label for="Completed">Completed</label>
+            <label for="Completed">Completado</label>
             @Html.ValidationMessageFor(model => model.Completed, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <button type="submit" class="btn btn-primary">Create</button>
-            <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+            <button type="submit" class="btn btn-primary">Crear</button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Regresar</a>
         </div>
     </div>
 </form>
