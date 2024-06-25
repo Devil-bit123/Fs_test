@@ -29,7 +29,7 @@
                 <td>@task.Description</td>
                 <td>@task.Created_at.ToString("yyyy-MM-dd")</td>
                 <td>@(task.Expires_at != null ? task.Expires_at.ToString("yyyy-MM-dd") : "")</td>
-                <td>@(task.Completed ? "Yes" : "No")</td>
+                <td>@(task.Completed ? "Si" : "No")</td>
                 <td>
                     <a href="@Url.Action("Edit", new { id = task.Id })" class="btn btn-secondary">Editar</a>
                     <a href="@Url.Action("Details", new { id = task.Id }) " class="btn btn-warning">Detalles</a>
