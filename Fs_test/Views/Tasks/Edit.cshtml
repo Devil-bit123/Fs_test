@@ -1,0 +1,68 @@
+﻿@model Fs_test.Models.Tasks
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Task</h2>
+
+<form action="@Url.Action("Edit", new { id = Model.Id })" method="post">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        <label for="Title" class="control-label col-md-2">Titulo:</label>
+        <div class="col-md-10">
+            <input type="text" id="Title" name="Title" value="@Model.Title" class="form-control" />
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Description" class="control-label col-md-2">Descripción:</label>
+        <div class="col-md-10">
+            <textarea id="Description" name="Description" rows="4" class="form-control">@Model.Description</textarea>
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Created_at" class="control-label col-md-2">Creado En:</label>
+        <div class="col-md-10">
+            <input type="text" id="Created_at" name="Created_at" value="@Model.Created_at.ToString("yyyy-MM-dd")" class="form-control" />
+            @Html.ValidationMessageFor(model => model.Created_at, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Expires_at" class="control-label col-md-2">Expira En:</label>
+        <div class="col-md-10">
+            <input type="text" id="Expires_at" name="Expires_at" value="@Model.Expires_at" class="form-control" />
+            @Html.ValidationMessageFor(model => model.Expires_at, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Completed" class="control-label col-md-2">Completado:</label>
+        <div class="col-md-10">
+            <input type="checkbox" id="Completed" name="Completed" value="true" />
+            <input type="hidden" name="Completed" value="false" />
+            <label for="Completed">Completed</label>
+            @Html.ValidationMessageFor(model => model.Completed, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Regresar</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

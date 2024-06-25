@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Mis Tareas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Tareas</h2>
+
+<div>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Crear Nueva</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Creado En</th>
+            <th>Expira En</th>
+            <th>Completado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Description</td>
+                <td>@task.Created_at.ToString("yyyy-MM-dd")</td>
+                <td>@(task.Expires_at != null ? task.Expires_at.ToString("yyyy-MM-dd") : "")</td>
+                <td>@(task.Completed ? "Yes" : "No")</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = task.Id })" class="btn btn-secondary">Editar</a>
+                    <a href="@Url.Action("Details", new { id = task.Id }) " class="btn btn-warning">Detalles</a>
+                    <a href="@Url.Action("Delete", new { id = task.Id })" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
